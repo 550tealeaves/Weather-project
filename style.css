@@ -72,3 +72,6 @@ form {
             position: relative;
             top: -10px;
         }
+        .link{
+            text-align: center;
+        }
