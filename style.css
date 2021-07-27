@@ -1,0 +1,74 @@
+form {
+            text-align: center;
+        }
+
+        body {
+            background-image: url(https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Saira Stencil One', cursive;
+            font-size: 30px;
+            color: #810624;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        i {
+            position: relative;
+            left: 60px;
+            font-size: 24px;
+        }
+
+        .weather-status {
+            text-align: center;
+            padding: 0;
+            list-style: none;
+            font-size: 20px;
+            color: black;
+        }
+
+        .fa-sun {
+            color: gold;
+        }
+
+        .fa-cloud-showers-heavy {
+            color: gray;
+        }
+
+        .fa-cloud-sun {
+            color: darkblue;
+        }
+
+        #city-search {
+            position: relative;
+            padding-left: 350px;
+        }
+
+        #search-city-button {
+            background-color: #427BFF;
+            color: white;
+            border: none;
+
+        }
+
+        #current-location-button {
+            background-color: #4fa746;
+            color: white;
+            border: none;
+        }
+
+        .temperature {
+            font-weight: bold;
+            font-size: xx-large;
+        }
+
+        .units {
+            position: relative;
+            top: -10px;
+        }
