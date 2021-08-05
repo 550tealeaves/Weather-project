@@ -78,6 +78,11 @@ body {
             margin-bottom: 25px;
         }
 
+        #fahrenheit-link{
+            margin-left: 250px;
+            margin-bottom: 100px;
+        }
+
         #current-location{
             background-color: #4fa746;
             color: white;
