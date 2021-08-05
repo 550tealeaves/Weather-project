@@ -18,95 +18,40 @@
 
 <body>
     <div class="container">
-        <form class="search-form" id="city-search">
+        <div class="weather-app">
+            <form class="search-form" id="search-form">
+                <div class="row">
+                    <div class="col-5">
+                        <input type="search" placeholder="Enter city" autofocus="on" autocomplete="off" id="city-input"
+                            class="form-control shadow-sm" />
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="Search" class="form-control btn btn-primary shadow-sm w-100" />
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-success w-100" id="current-location-button">
+                            Current
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <h1 id="city"></h1>
+            <ul>
+                <li id="date"></li>
+                <li id="description"></li>
+            </ul>
             <div class="row">
-                <div class="col-3">
-                    <input type="search" placeholder="Type a city.." autofocus="on" autocomplete="off"
-                        class="form-control shadow-sm" id="search-city-text">
-                </div>
-                <div class="col-2">
-                    <button class="btn btn-success w-100" id="search-city-button">
-                        Search
-                    </button>
-                </div>
-                <div class="col-2">
-                    <button class="btn btn-success w-100" id="current-location-button">
-                        Current
-                    </button>
-                </div>
-            </div>
-        </form>
-        <br />
-        <h1>
-
-        </h1>
-        <ul class="weather-status">
-            <li id="day-time">
-                Wednesday 22:00
-            </li>
-            <li>
-                <span class="temperature" id="temperature">23</span><span class="units">°C</span> & Partly Sunny
-            </li>
-        </ul>
-        <div class="row">
-            <div class="col-2">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Monday</h5>
-                        <p class="card-text"><strong>31&degC</strong> / 87&degF</p>
+                <div class="col-6">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <span class="temperature" id="temperature"></span><span class="units">°C</span>
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="far fa-sun"></i></li>
-                        <li class="list-group-item">10% chance or rain</li>
-                    </ul>
                 </div>
-            </div>
-            <div class="col-2">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Tuesday</h5>
-                        <p class="card-text"><strong>23&degC</strong> / 74&degF</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-cloud-showers-heavy"></i></li>
-                        <li class="list-group-item">74% chance of rain</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="card" style="width: 18rem;">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Wednesday</h5>
-                        <p class="card-text"><strong>25&degC</strong> / 77&degF</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="far fa-sun"></i></li>
-                        <li class="list-group-item">6% chance of rain</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Thursday</h5>
-                        <p class="card-text"><strong>21&degC</strong> / 69&degF</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="far fa-sun"></i></li>
-                        <li class="list-group-item">14% chance of rain</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-1">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Friday</h5>
-                        <p class="card-text"><strong>28&degC</strong> / 83&degF</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-cloud-sun"></i></li>
-                        <li class="list-group-item">21% chance of rain</li>
+                <div>
+                    <ul>
+                        <li>Humidity: <span id="humidity"></span>%</li>
+                        <li>Wind: <span id="wind"></span> km/h</li>
                     </ul>
                 </div>
             </div>
