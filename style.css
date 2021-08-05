@@ -43,18 +43,6 @@ body {
             text-align: center;
         }
 
-        .float-left strong{
-            color: rgb(44, 0, 65);
-            display: block;
-            margin: 0 auto;
-            margin-left: 150px;
-            font-size: 64px;
-        }
-
-        .float-left.units{
-            font-size: 20px;
-        }
-
 
         .container{
             border: 2px dotted rgb(160, 82, 94);
@@ -72,8 +60,9 @@ body {
         }
 
         .temperature {
-            
-            margin-left: 250px;
+            text-align: center;
+            margin-left: 150px;
+            color: rgb(44, 0, 65);
             font-size: 64px;
             font-weight: 400;
             line-height: 1;
@@ -93,13 +82,4 @@ body {
             background-color: #4fa746;
             color: white;
             border: none;
-        }
-
-        .weather-temperature .active{
-            color: rgb(33, 33, 33);
-            cursor: default; 
-        }
-
-        .weather-temperature .active:hover{
-            text-decoration: none;
         }

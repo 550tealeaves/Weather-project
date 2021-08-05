@@ -69,23 +69,6 @@ function handleSubmit(event) {
     searchCity(city);
 }
 
-function displayFahrenheitTemp(event) { //STEP 21 - create function displayFahrenheitTemp that will receive event parameter
-    event.preventDefault(); //STEP 22 - stop link from reloading pg 
-    let temperatureElement = document.querySelector("#temperature"); //STEP 23 - select the element w/ temperature id (big temp numbers to change it)
-    celsiusLink.classList.remove("active"); //STEP 35 - when click F, it will turn the C active
-    fahrenheitLink.classList.add("active"); //STEP 36 - removes F active link and then adds to C 
-    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32; //STEP 24/28 - set new variable fahrenheitTemperature = to celsiustemp * conversion formula (stops formula from repeating) 
-    temperatureElement.innerHTML = Math.round(fahrenheitTemperature); //STEP 25 - set change the HTML (big temp numbers) to be equal to fahrenheit value after clicking F-link
-}
-
-
-function displayCelsiusTemp(event) { //STEP 31 - create function displayCelsisuTemp that will receive event parameter
-    event.preventDefault(); //STEP 32 - stop pg reloading 
-    celsiusLink.classList.add("active"); //STEP 37 - when click the active C, it will switch to F and inactive C
-    fahrenheitLink.classList.remove("active"); //STEP 38 - inactiveates C and makes F active 
-    let temperatureElement = document.querySelector("#temperature"); //STEP 33 - select temperature element 
-    temperatureElement.innerHTML = Math.round(celsiusTemperature); //STEP 34 - already know C temp (response.data.main.temp), set tempEle.inner = celsiusTemp to keep track of temp
-}
 
 function searchLocation(position) {
     let apiKey = "ab6da5069e5bc23122a387b3e99bd05b";
