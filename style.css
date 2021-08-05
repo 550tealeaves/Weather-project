@@ -1,5 +1,6 @@
 body {
             background: linear-gradient(0.25turn, #eabaee, #ebf8e1, #a4d1f5);
+            text-align: center;
         }
 
         h1 {
@@ -11,6 +12,11 @@ body {
             margin-bottom: 5px;
             font-family: 'Saira Stencil One', cursive;
             color: #810624;
+        }
+
+        img{
+            display: block;
+            margin: 0 auto;
         }
 
         ul {
@@ -33,13 +39,17 @@ body {
             text-transform: capitalize;
         }
 
+        small{
+            text-align: center;
+        }
+
 
         .container{
             border: 2px dotted rgb(160, 82, 94);
             border-radius: 15px;
             padding: 15px;
             margin: 30px auto;
-            max-width: 500px;
+            max-width: 600px;
         }
 
         .weather-app {

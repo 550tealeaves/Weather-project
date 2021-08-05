@@ -41,6 +41,7 @@ function displayWeatherCondition(response) {
     let descriptionElement = document.querySelector("#description");
     let humidityElement = document.querySelector("#humidity");
     let windElement = document.querySelector("#wind");
+    let iconElement = document.querySelector("#icon");
 
 
     //Step 7 - target icon to change along w/ weather description
@@ -52,6 +53,8 @@ function displayWeatherCondition(response) {
     descriptionElement.innerHTML = response.data.weather[0].description;
     humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = Math.round(response.data.wind.speed);
+    iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`); //Step 8 - use setAttribute() function to inject icon link into src
+    iconElement.setAttribute("alt", response.data.weather[0].description); //Step 9 - set alt equal to description so that shows in console element
 }
 
 function searchCity(city) {
