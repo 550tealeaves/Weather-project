@@ -70,6 +70,25 @@ function handleSubmit(event) {
 }
 
 
+function showFahrenheit(event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    celsiuslink.classList.remove("active");
+    fahrenheitlink.classList.add("active");
+    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32; //STEP 24/28 - set new variable fahrenheitTemperature = to celsiustemp * conversion formula (stops formula from repeating) 
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+
+function showCelsiusTemp(event){
+    event.preventDefault();
+    celsiuslink.classList.add("active");
+    fahrenheitlink.classList.remove("active");
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+
 function searchLocation(position) {
     let apiKey = "ab6da5069e5bc23122a387b3e99bd05b";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude
@@ -88,7 +107,14 @@ let celsiusTemperature = null;
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
+let fahrenheitlink = document.querySelector("#fahrenheit-link");
+fahrenheitlink.addEventListener("click", showFahrenheit);
+
+let celsiuslink = document.querySelector("#celsius-link");
+celsiuslink.addEventListener("click", showCelsiusTemp);
+
+
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-searchCity("New York");
+searchCity("London");

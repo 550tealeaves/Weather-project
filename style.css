@@ -59,11 +59,6 @@ body {
             max-width: 400px;
         }
 
-        img .float-left{
-            display: block;
-            margin: 0 auto;
-        }
-
 
 
         .temperature {
@@ -83,4 +78,13 @@ body {
             background-color: #4fa746;
             color: white;
             border: none;
+        }
+
+        .weather-temperature .active{
+            color: rgb(33, 33, 33);
+            cursor: default;
+        }
+
+        .weather-temperature .active:hover{
+            text-decoration: none;
         }
