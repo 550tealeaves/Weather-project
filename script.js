@@ -35,6 +35,36 @@ let month = months[now.getMonth()];
 dayTime.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minute}`;
 
 
+function displayForecast() { //STEP 39 - create displayForecast function  & paste HTML forecast code between backticks ``;]
+    let forecastElement = document.querySelector("#forecast");
+
+    let forecastHTML = `<div class="row">`; //STEP 41 - set variable forecastHTML = to empty string  - move HTML code into forecastHTML - STEP 43 - move <div class="row"> withn backticks
+    let days = ["Thu", "Fri", "Sat", "Sun", "Mon"]; //STEP 45 - create array to loop forecast HTML
+    days.forEach(function (day) { //STEP 46 - use foreEach so loop repeats and insert the forecastHTML=forecastHTML+... b/w brackets
+        forecastHTML = forecastHTML + `  
+                    
+                        <div class="col-2">
+                            <div class="weather-forecast-date">
+                                ${day}
+                            </div>
+                            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" width="42" />
+                            <div class="weather-forecast-temperatures">
+                                <span class="weather-forecast-temperature-max">
+                                    18°</span>
+                                <span class="weather-forecast-temperature-min">
+                                    12°</span>
+                            </div>
+                        </div>
+                `;
+    })
+
+    forecastHTML = forecastHTML + `</div>`; //STEP 44 - remember to close the div
+    forecastElement.innerHTML = forecastHTML; //STEP 42 - set the HTML code = to forecastHTML
+
+
+}
+
+
 function displayWeatherCondition(response) {
     let temperatureElement = document.querySelector("#temperature");
     let cityElement = document.querySelector("#city");
@@ -118,3 +148,5 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("London");
+
+displayForecast();
