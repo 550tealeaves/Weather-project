@@ -35,33 +35,39 @@ let month = months[now.getMonth()];
 dayTime.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minute}`;
 
 
-function displayForecast() { //STEP 39 - create displayForecast function  & paste HTML forecast code between backticks ``;]
+function displayForecast(response) { //STEP 39 - create displayForecast function  & paste HTML forecast code between backticks ``;] - STEP 54 add response as parameter
+    console.log(response.data.daily); //STEP 55 - shows daily forecast
     let forecastElement = document.querySelector("#forecast");
 
     let forecastHTML = `<div class="row">`; //STEP 41 - set variable forecastHTML = to empty string  - move HTML code into forecastHTML - STEP 43 - move <div class="row"> withn backticks
     let days = ["Thu", "Fri", "Sat", "Sun", "Mon"]; //STEP 45 - create array to loop forecast HTML
     days.forEach(function (day) { //STEP 46 - use foreEach so loop repeats and insert the forecastHTML=forecastHTML+... b/w brackets
         forecastHTML = forecastHTML + `  
-                    
-                        <div class="col-2">
-                            <div class="weather-forecast-date">
-                                ${day}
-                            </div>
-                            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" width="42" />
-                            <div class="weather-forecast-temperatures">
-                                <span class="weather-forecast-temperature-max">
-                                    18°</span>
-                                <span class="weather-forecast-temperature-min">
-                                    12°</span>
-                            </div>
+                
+                    <div class="col-2">
+                        <div class="weather-forecast-date">
+                            ${day}
                         </div>
-                `;
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" width="42" />
+                        <div class="weather-forecast-temperatures">
+                            <span class="weather-forecast-temperature-max">
+                                18°</span>
+                            <span class="weather-forecast-temperature-min">
+                                12°</span>
+                        </div>
+                    </div>
+            `;
     })
 
     forecastHTML = forecastHTML + `</div>`; //STEP 44 - remember to close the div
     forecastElement.innerHTML = forecastHTML; //STEP 42 - set the HTML code = to forecastHTML
+}
 
-
+function getForecast(coordinates) { //STEP 48 - create function getForecast to receive coordinates, sent from displayTemp(response), which returns city coords 
+    console.log(coordinates);
+    let apiKey = "ab6da5069e5bc23122a387b3e99bd05b"; //STEP 50 - copy/paste apiKey statement from step 1
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`; ////STEP 49 - add apiUrl, remove &exclude{part}, interpolate apiKey & coordinates.lat/lon & add units=metric
+    axios.get(apiUrl).then(displayForecast); //STEP 53 - make API call and trigger displayForecast function
 }
 
 
@@ -85,6 +91,8 @@ function displayWeatherCondition(response) {
     windElement.innerHTML = Math.round(response.data.wind.speed);
     iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`); //Step 8 - use setAttribute() function to inject icon link into src
     iconElement.setAttribute("alt", response.data.weather[0].description); //Step 9 - set alt equal to description so that shows in console element
+
+    getForecast(response.data.coord); //STEP 47 - call getForecast and send the response.data.coord
 }
 
 function searchCity(city) {
@@ -149,4 +157,3 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("London");
 
-displayForecast();
