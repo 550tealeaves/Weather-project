@@ -35,28 +35,39 @@ let month = months[now.getMonth()];
 dayTime.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minute}`;
 
 
+function formatDay(timestamp) { //STEP 58 - create new format to edit forecast date & send it timestamp - add formatDay to interpolated forecastDay.dt
+    let date = new Date(timestamp * 1000); //STEP 59 - converting timestamp
+    let day = date.getDay(); //STEP 60 - must create array so that day return is words and not numbers
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]; //STEP 61 create array 
+
+    return days[day]; //STEP 62 - this will convert the long time number to shortened days
+}
+
 function displayForecast(response) { //STEP 39 - create displayForecast function  & paste HTML forecast code between backticks ``;] - STEP 54 add response as parameter
-    console.log(response.data.daily); //STEP 55 - shows daily forecast
+    console.log(response.data.daily);
+    let forecast = response.data.daily; //STEP 55 - shows daily forecast STEP 56 - store response.data.daily in variable, forecast
     let forecastElement = document.querySelector("#forecast");
 
     let forecastHTML = `<div class="row">`; //STEP 41 - set variable forecastHTML = to empty string  - move HTML code into forecastHTML - STEP 43 - move <div class="row"> withn backticks
     let days = ["Thu", "Fri", "Sat", "Sun", "Mon"]; //STEP 45 - create array to loop forecast HTML
-    days.forEach(function (day) { //STEP 46 - use foreEach so loop repeats and insert the forecastHTML=forecastHTML+... b/w brackets
-        forecastHTML = forecastHTML + `  
-                
-                    <div class="col-2">
-                        <div class="weather-forecast-date">
-                            ${day}
+    forecast.forEach(function (forecastDay, index) { //STEP 46 - use foreEach so loop repeats and insert the forecastHTML=forecastHTML+... b/w brackets //STEP 57 - change start of loop and function from days to forecast & forecastDay //STEP 63 - add 2nd paramter, index
+        if (index < 6) { //STEP 64 - will display only indexes 0-5 and hide 6+
+            forecastHTML = forecastHTML + `  
+                    
+                        <div class="col-2">
+                            <div class="weather-forecast-date">
+                                ${formatDay(forecastDay.dt)}
+                            </div>
+                            <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42" />
+                            <div class="weather-forecast-temperatures">
+                                <span class="weather-forecast-temperature-max">
+                                    ${Math.round(forecastDay.temp.max)}</span>
+                                <span class="weather-forecast-temperature-min">
+                                    ${Math.round(forecastDay.temp.min)}</span>
+                            </div>
                         </div>
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" width="42" />
-                        <div class="weather-forecast-temperatures">
-                            <span class="weather-forecast-temperature-max">
-                                18°</span>
-                            <span class="weather-forecast-temperature-min">
-                                12°</span>
-                        </div>
-                    </div>
-            `;
+                `;
+        }
     })
 
     forecastHTML = forecastHTML + `</div>`; //STEP 44 - remember to close the div
