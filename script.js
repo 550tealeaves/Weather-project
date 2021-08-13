@@ -44,7 +44,6 @@ function formatDay(timestamp) { //STEP 58 - create new format to edit forecast d
 }
 
 function displayForecast(response) { //STEP 39 - create displayForecast function  & paste HTML forecast code between backticks ``;] - STEP 54 add response as parameter
-    console.log(response.data.daily);
     let forecast = response.data.daily; //STEP 55 - shows daily forecast STEP 56 - store response.data.daily in variable, forecast
     let forecastElement = document.querySelector("#forecast");
 
@@ -75,9 +74,8 @@ function displayForecast(response) { //STEP 39 - create displayForecast function
 }
 
 function getForecast(coordinates) { //STEP 48 - create function getForecast to receive coordinates, sent from displayTemp(response), which returns city coords 
-    console.log(coordinates);
     let apiKey = "ab6da5069e5bc23122a387b3e99bd05b"; //STEP 50 - copy/paste apiKey statement from step 1
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`; ////STEP 49 - add apiUrl, remove &exclude{part}, interpolate apiKey & coordinates.lat/lon & add units=metric
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`; ////STEP 49 - add apiUrl, remove &exclude{part}, interpolate apiKey & coordinates.lat/lon & add units=metric
     axios.get(apiUrl).then(displayForecast); //STEP 53 - make API call and trigger displayForecast function
 }
 
