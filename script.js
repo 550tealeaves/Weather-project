@@ -57,7 +57,7 @@ function displayForecast(response) { //STEP 39 - create displayForecast function
                             <div class="weather-forecast-date">
                                 ${formatDay(forecastDay.dt)}
                             </div>
-                            <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42" />
+                            <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42" />
                             <div class="weather-forecast-temperatures">
                                 <span class="weather-forecast-temperature-max">
                                     ${Math.round(forecastDay.temp.max)}</span>
@@ -139,7 +139,7 @@ function showCelsiusTemp(event){
 function searchLocation(position) {
     let apiKey = "ab6da5069e5bc23122a387b3e99bd05b";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude
-        }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+        }&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
 
     axios.get(apiUrl).then(displayWeatherCondition);
 }
