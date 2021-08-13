@@ -45,6 +45,7 @@ body {
 
 
         .container{
+            background: linear-gradient(0.25turn, #eabaee, #ebf8e1, #a4d1f5);
             border: 2px dotted rgb(160, 82, 94);
             border-radius: 15px;
             padding: 15px;
@@ -97,8 +98,9 @@ body {
         }
 
         .weather-forecast-date{
-            font-size: 16px;
+            font-size: 20px;
             opacity: 0.5;
+            font-family: 'Saira Stencil One', cursive;
         }
 
         .weather-forecast-temperature-min{
@@ -106,5 +108,5 @@ body {
         }
 
         .weather-forecast-temperatures{
-            font-size: 13px;
+            font-size: 17px;
         }
