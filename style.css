@@ -4,7 +4,6 @@ body {
         }
 
         h1 {
-            text-align: center;
             font-size: 30px;
             font-weight: 100;
             line-height: 28px;
@@ -12,11 +11,6 @@ body {
             margin-bottom: 5px;
             font-family: 'Saira Stencil One', cursive;
             color: #810624;
-        }
-
-        img{
-            display: block;
-            margin: 0 auto;
         }
 
         ul {
@@ -28,11 +22,10 @@ body {
         li {
             color: #7c7c7c;
             font-size: 18px;
-            font-weight: 100;
+            font-weight: 400;
             height: 19px;
             line-height: 1;
             list-style: none;
-            text-align: center;
         }
         
         li:first-letter{
@@ -71,9 +64,7 @@ body {
             color: rgb(44, 0, 65);
             font-size: 64px;
             font-weight: 400;
-            line-height: 1;
-
-            
+            line-height: 1;            
         }
 
         .search-form {
