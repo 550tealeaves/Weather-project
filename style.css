@@ -1,98 +1,98 @@
 body {
-            background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/015/151/original/Forecast.png?1628814854);
-            text-align: center;
-        }
+    background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/015/151/original/Forecast.png?1628814854);
+    text-align: center;
+}
 
-        h1 {
-            font-size: 30px;
-            font-weight: 100;
-            line-height: 28px;
-            margin: 0;
-            margin-bottom: 5px;
-            font-family: 'Saira Stencil One', cursive;
-            color: #810624;
-        }
+h1 {
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 28px;
+    margin: 0;
+    margin-bottom: 5px;
+    font-family: 'Saira Stencil One', cursive;
+    color: #810624;
+}
 
-        ul {
-            margin: 0 0 10px;
-            margin-top: 20px;
-            padding: 0;
-        }
+ul {
+    margin: 0 0 10px;
+    margin-top: 20px;
+    padding: 0;
+}
 
-        li {
-            color: #7c7c7c;
-            font-size: 18px;
-            font-weight: 400;
-            height: 19px;
-            line-height: 1;
-            list-style: none;
-        }
-        
-        li:first-letter{
-            text-transform: capitalize;
-        }
+li {
+    color: #7c7c7c;
+    font-size: 18px;
+    font-weight: 400;
+    height: 19px;
+    line-height: 1;
+    list-style: none;
+}
 
-        small{
-            text-align: center;
-        }
+li:first-letter {
+    text-transform: capitalize;
+}
 
 
-        .container{
-            background: linear-gradient(0.25turn, #eabaee, #ebf8e1, #a4d1f5);
-            border: 2px dotted rgb(160, 82, 94);
-            border-radius: 15px;
-            padding: 15px;
-            margin: 30px auto;
-            max-width: 600px;
-        }
+.container {
+    background: linear-gradient(0.25turn, #eabaee, #ebf8e1, #a4d1f5);
+    border: 2px dotted rgb(160, 82, 94);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 30px auto;
+    max-width: 600px;
+}
 
-        .weather-app {
-            padding: 15px;
-            margin: 20px auto;
-            border-radius: 10px;
-            max-width: 500px;
-        }
+.weather-app {
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 500px;
+}
+
+#icon {
+    display: block;
+    margin: 0 auto;
+}
 
 
-        #icon{
-            display: block;
-            margin: 0 auto;
-        }
+.temperature {
+    color: rgb(44, 0, 65);
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+}
 
 
-        .temperature {
-            color: rgb(44, 0, 65);
-            font-size: 64px;
-            font-weight: 400;
-            line-height: 1;            
-        }
+.search-form {
+    margin-bottom: 25px;
+}
 
-        .search-form {
-            margin-bottom: 25px;
-        }
+#current-location {
+    background-color: #4fa746;
+    color: white;
+    border: none;
+}
 
-        #current-location{
-            background-color: #4fa746;
-            color: white;
-            border: none;
-        }
+.weather-forecast {
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+}
 
-        .weather-forecast{
-            margin-top: 20px;
-            text-align: center;
-            color: black;
-        }
+.weather-forecast-date {
+    font-size: 20px;
+    opacity: 0.5;
+    font-family: 'Saira Stencil One', cursive;
+}
 
-        .weather-forecast-date{
-            font-size: 20px;
-            opacity: 0.5;
-            font-family: 'Saira Stencil One', cursive;
-        }
+.weather-forecast-temperature-min {
+    opacity: 0.5;
+}
 
-        .weather-forecast-temperature-min{
-            opacity: 0.5;
-        }
+.weather-forecast-temperatures {
+    font-size: 17px;
+}
 
-        .weather-forecast-temperatures{
-            font-size: 17px;
-        }
+.font-change {
+    font-size: 12px;
+}
