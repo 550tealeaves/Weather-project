@@ -59,9 +59,9 @@ function displayForecast(response) { //STEP 39 - create displayForecast function
                             </div>
                             <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42" />
                             <div class="weather-forecast-temperatures">
-                                <span class="weather-forecast-temperature-max">
+                                <span class="weather-forecast-temperature-max ms-1">
                                     ${Math.round(forecastDay.temp.max)}</span>
-                                <span class="weather-forecast-temperature-min">
+                                <span class="weather-forecast-temperature-min ms-1">
                                     ${Math.round(forecastDay.temp.min)}</span>
                             </div>
                         </div>
