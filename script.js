@@ -34,7 +34,7 @@ let month = months[now.getMonth()];
 
 dayTime.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minute}`;
 
-
+//CREATE FUNCTION TO FORMAT DATE
 function formatDay(timestamp) { //STEP 58 - create new format to edit forecast date & send it timestamp - add formatDay to interpolated forecastDay.dt
     let date = new Date(timestamp * 1000); //STEP 59 - converting timestamp
     let day = date.getDay(); //STEP 60 - must create array so that day return is words and not numbers
@@ -43,6 +43,7 @@ function formatDay(timestamp) { //STEP 58 - create new format to edit forecast d
     return days[day]; //STEP 62 - this will convert the long time number to shortened days
 }
 
+//CREATE FUNCTION TO SHOW THE FORECAST
 function displayForecast(response) { //STEP 39 - create displayForecast function  & paste HTML forecast code between backticks ``;] - STEP 54 add response as parameter
     let forecast = response.data.daily; //STEP 55 - shows daily forecast STEP 56 - store response.data.daily in variable, forecast
     let forecastElement = document.querySelector("#forecast");
@@ -73,13 +74,14 @@ function displayForecast(response) { //STEP 39 - create displayForecast function
     forecastElement.innerHTML = forecastHTML; //STEP 42 - set the HTML code = to forecastHTML
 }
 
+//CREATE FUNCTION THAT OBTAINS FORECAST FROM OTHER CITIES USING API
 function getForecast(coordinates) { //STEP 48 - create function getForecast to receive coordinates, sent from displayTemp(response), which returns city coords 
     let apiKey = "ab6da5069e5bc23122a387b3e99bd05b"; //STEP 50 - copy/paste apiKey statement from step 1
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`; ////STEP 49 - add apiUrl, remove &exclude{part}, interpolate apiKey & coordinates.lat/lon & add units=metric
     axios.get(apiUrl).then(displayForecast); //STEP 53 - make API call and trigger displayForecast function
 }
 
-
+//CREATE FUNCTION THAT SHOWS CURRENT WEATHER CONDITIONS (WIND, HUMIDITY, DESCRIPTION, TEMP, ICON) OF SELECTED CITY
 function displayWeatherCondition(response) {
     let temperatureElement = document.querySelector("#temperature");
     let cityElement = document.querySelector("#city");
@@ -93,6 +95,7 @@ function displayWeatherCondition(response) {
 
     celsiusTemperature = response.data.main.temp; //STEP 27 - set celsiusTemperature variable = to path w/ Celsius temp in API
 
+    //UPDATE HTML BASED ON THE RESPONSE.DATA
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
     cityElement.innerHTML = response.data.name; //this is where city name is shown in object 
     descriptionElement.innerHTML = response.data.weather[0].description;
@@ -104,19 +107,21 @@ function displayWeatherCondition(response) {
     getForecast(response.data.coord); //STEP 47 - call getForecast and send the response.data.coord
 }
 
+//CREATE FUNCTION THAT ALLOWS SEARCH BUTTON TO SEARCH CITIES USING API
 function searchCity(city) {
     let apiKey = "ab6da5069e5bc23122a387b3e99bd05b";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayWeatherCondition);
 }
 
+//CREATE FUNCTION THAT ACTIVATES WHEN THE BUTTON IS SEARCHED
 function handleSubmit(event) {
     event.preventDefault();
     let city = document.querySelector("#city-input").value;
     searchCity(city);
 }
 
-
+//CREATE FUNCTION THAT SEARCHES DEVICE LOCATION USING API
 function searchLocation(position) {
     let apiKey = "ab6da5069e5bc23122a387b3e99bd05b";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude
@@ -125,6 +130,7 @@ function searchLocation(position) {
     axios.get(apiUrl).then(displayWeatherCondition);
 }
 
+//CREATE FUNCTION THAT OBTAINS THE CURRENT DEVICE LOCATION
 function getCurrentLocation(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(searchLocation);
